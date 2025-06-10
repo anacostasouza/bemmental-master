@@ -1,0 +1,160 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.home-main {
+  background: linear-gradient(135deg, #e8d5ff 0%, #d4b3ff 100%);
+  min-height: 100vh;
+  padding: 40px 20px;
+  font-family: 'Arial', sans-serif;
+}
+
+.home-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.home-images {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: center;
+}
+
+.home-images img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.home-text {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.SuaMente {
+  text-align: left;
+}
+
+.SuaMente h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #2d1b69;
+  line-height: 1.2;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.SuaMente p {
+  font-size: 1.2rem;
+  color: #4a4a4a;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+.PsicologoIdeal {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 30px;
+  background: rgba(255, 255, 255, 0.3);
+  padding: 30px;
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.meditando3 {
+  flex-shrink: 0;
+}
+
+.meditando3 img {
+  width: 150px;
+  height: auto;
+  border-radius: 10px;
+}
+
+.PsicologoIdeal-content {
+  flex: 1;
+}
+
+.PsicologoIdeal h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #2d1b69;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.PsicologoIdeal p {
+  font-size: 1.1rem;
+  color: #4a4a4a;
+  line-height: 1.6;
+  text-align: left;
+}
+
+/* tablets */
+@media (max-width: 768px) {
+  .home-content {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    text-align: center;
+  }
+  
+  .SuaMente h1 {
+    font-size: 2rem;
+  }
+  
+  .PsicologoIdeal h2 {
+    font-size: 1.5rem;
+  }
+  
+  .PsicologoIdeal {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+  }
+  
+  .meditando3 {
+    order: -1;
+  }
+}
+
+/* mobile */
+@media (max-width: 480px) {
+  .home-main {
+    padding: 20px 15px;
+  }
+  
+  .SuaMente h1 {
+    font-size: 1.5rem;
+  }
+  
+  .SuaMente p {
+    font-size: 1rem;
+  }
+  
+  .PsicologoIdeal h2 {
+    font-size: 1.3rem;
+  }
+  
+  .PsicologoIdeal p {
+    font-size: 1rem;
+  }
+  
+  .PsicologoIdeal {
+    padding: 20px;
+  }
+}
+
