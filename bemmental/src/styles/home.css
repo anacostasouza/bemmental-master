@@ -1,160 +1,154 @@
+/* Reset e configurações gerais */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-.home-main {
-  background: linear-gradient(135deg, #e8d5ff 0%, #d4b3ff 100%);
-  min-height: 100vh;
-  padding: 40px 20px;
-  font-family: 'Arial', sans-serif;
-}
-
-.home-content {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
-  align-items: center;
-}
-
-.home-images {
+html, body {
+  height: 100%;
+  font-family: 'Montserrat', sans-serif;
+  background: #F1E4FF;
   display: flex;
   flex-direction: column;
-  gap: 30px;
+}
+
+#root {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header fixo no topo */
+.Header {
+  width: 100%;
+  background-color: #F1E4FF;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* Footer ao final da tela ou conteúdo */
+.Footer {
+  width: 100%;
+  background-color: #F1E4FF;
+  text-align: center;
+  padding: 20px 0;
+  margin-top: auto;
+}
+
+/* Main ocupa o espaço restante */
+.home-main {
+  flex: 1;
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+/* Layout principal com grid responsiva */
+.home-content {
+  align-items: center;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+  max-width: 1200px;
+  width: 100%;
+}
+
+@media (min-width: 900px) {
+  .home-content {
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+  }
+}
+
+/* Seção de imagens */
+.home-images {
+  display: flex;
+  justify-content: center;
   align-items: center;
 }
 
 .home-images img {
-  max-width: 100%;
+  width: 100%;
+  min-width: 700px;
+  max-width: 1000px;
   height: auto;
-  border-radius: 15px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  aspect-ratio: 1/1;
+  object-fit: contain;
 }
 
+/* Seção de texto */
 .home-text {
+  margin-top: 4rem;
   display: flex;
   flex-direction: column;
-  gap: 50px;
+  gap: 40px;
+  width: 100%;
+  min-width: 700px;
 }
 
-.SuaMente {
-  text-align: left;
-}
-
+/* "Sua Mente" */
 .SuaMente h1 {
-  font-size: 2.5rem;
-  font-weight: bold;
-  color: #2d1b69;
-  line-height: 1.2;
-  margin-bottom: 20px;
+  color: #000;
+  font-size: clamp(24px, 5vw, 46px);
+  font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  line-height: 1.2;
 }
 
 .SuaMente p {
-  font-size: 1.2rem;
-  color: #4a4a4a;
-  line-height: 1.6;
-  margin-bottom: 30px;
+  color: #000;
+  font-family: 'Quicksand', sans-serif;
+  font-size: clamp(16px, 4vw, 27px);
+  margin-top: 10px;
 }
 
+/* "Psicólogo Ideal" */
 .PsicologoIdeal {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
   align-items: center;
-  gap: 30px;
-  background: rgba(255, 255, 255, 0.3);
-  padding: 30px;
-  border-radius: 20px;
-  backdrop-filter: blur(10px);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
 }
 
-.meditando3 {
-  flex-shrink: 0;
+@media (min-width: 768px) {
+  .PsicologoIdeal {
+    flex-direction: row;
+    align-items: center;
+  }
 }
 
 .meditando3 img {
-  width: 150px;
+  width: 100%;
+  min-width: 100px;
+  width: 200px;
   height: auto;
-  border-radius: 10px;
 }
 
 .PsicologoIdeal-content {
-  flex: 1;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .PsicologoIdeal-content {
+    text-align: right;
+  }
 }
 
 .PsicologoIdeal h2 {
-  font-size: 2rem;
-  font-weight: bold;
-  color: #2d1b69;
-  margin-bottom: 15px;
+  font-size: clamp(20px, 4vw, 40px);
+  font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  color: #000;
 }
 
 .PsicologoIdeal p {
-  font-size: 1.1rem;
-  color: #4a4a4a;
-  line-height: 1.6;
-  text-align: left;
+  color: #000;
+  font-family: 'Quicksand', sans-serif;
+  font-size: clamp(14px, 3.5vw, 25px);
+  margin-top: 10px;
 }
-
-/* tablets */
-@media (max-width: 768px) {
-  .home-content {
-    grid-template-columns: 1fr;
-    gap: 40px;
-    text-align: center;
-  }
-  
-  .SuaMente h1 {
-    font-size: 2rem;
-  }
-  
-  .PsicologoIdeal h2 {
-    font-size: 1.5rem;
-  }
-  
-  .PsicologoIdeal {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 20px;
-  }
-  
-  .meditando3 {
-    order: -1;
-  }
-}
-
-/* mobile */
-@media (max-width: 480px) {
-  .home-main {
-    padding: 20px 15px;
-  }
-  
-  .SuaMente h1 {
-    font-size: 1.5rem;
-  }
-  
-  .SuaMente p {
-    font-size: 1rem;
-  }
-  
-  .PsicologoIdeal h2 {
-    font-size: 1.3rem;
-  }
-  
-  .PsicologoIdeal p {
-    font-size: 1rem;
-  }
-  
-  .PsicologoIdeal {
-    padding: 20px;
-  }
-}
-

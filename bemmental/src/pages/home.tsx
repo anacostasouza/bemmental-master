@@ -3,6 +3,7 @@ import meditando from "../assets/home 2.png";
 import meditando3 from "../assets/home.png";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import "../styles/home.css";
 
 const Home: React.FC = () => (
   <>
@@ -13,7 +14,7 @@ const Home: React.FC = () => (
     <main className="home-main">
       <div className="home-content">
         <div className="home-images">
-          <img src={meditando} alt="Pessoa Meditando" />
+          <img src={meditando3} alt="Pessoa Meditando" />
         </div>
 
         <div className="home-text">
@@ -24,7 +25,7 @@ const Home: React.FC = () => (
           
           <div className="PsicologoIdeal">
             <div className="meditando3">
-              <img src={meditando3} alt="Terapia Sentada" />
+              <img src={meditando} alt="Terapia Sentada" />
             </div>
             <div className="PsicologoIdeal-content">
               <h2>ENCONTRE O PSICÓLOGO IDEAL!</h2>

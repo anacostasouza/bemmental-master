@@ -1,6 +1,6 @@
 import "../styles/Header.css";
 import logo from "../assets/logo.png";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 const Header = () => {
   const navigate = useNavigate();
@@ -14,7 +14,9 @@ const Header = () => {
   return (
     <header className="header">
       <div className="logo-container">
+        <Link to={"/"}>
         {<img src={logo} alt="Logo Bem Mental" className="logo" />}
+        </Link>
       </div>
 
       <div className="button-group">
