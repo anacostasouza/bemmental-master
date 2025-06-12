@@ -32,6 +32,12 @@
   gap: 16px;
 }
 
+.user-name {
+  font-family: 'Quicksand';
+  font-weight: 600;
+  color: #4F868C;
+}
+
 .btn {
   padding: 8px 16px;
   border: none;

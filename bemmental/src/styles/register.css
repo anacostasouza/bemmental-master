@@ -1,0 +1,109 @@
+/* Container geral com duas colunas: formulário + imagem */
+.register-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 100vh;
+  background: #e6d7ff; /* roxo claro */
+  font-family: 'Montserrat', sans-serif;
+  color: #333;
+}
+
+/* Coluna do formulário */
+.register-form {
+  padding: 3rem 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+}
+
+/* Título */
+.register-form h1 {
+  font-weight: 700;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #4b2995;
+}
+
+/* Campos de nome lado a lado */
+.name-fields {
+  display: flex;
+  gap: 1rem;
+}
+
+.name-fields input {
+  flex: 1;
+}
+
+/* Inputs e select com borda suave e arredondada */
+.register-form input,
+.register-form select {
+  padding: 0.85rem 1rem;
+  border: 1.5px solid #cbbfff;
+  border-radius: 12px;
+  background-color: #f8f2ff;
+  font-size: 1rem;
+  color: #4b2995;
+  outline-offset: 2px;
+  outline-color: transparent;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.register-form input::placeholder {
+  color: #b6a4e0;
+}
+
+.register-form input:focus,
+.register-form select:focus {
+  border-color: #4b2995;
+  background-color: #fff;
+  outline-color: #4b2995;
+}
+
+/* Mensagem de erro */
+.error-message {
+  color: #c0392b;
+  font-size: 0.9rem;
+  margin-top: -0.8rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+/* Botão de registrar */
+.register-form button[type="submit"] {
+  margin-top: 1.6rem;
+  padding: 1rem;
+  border-radius: 12px;
+  background-color: #4b2995;
+  color: white;
+  font-weight: 700;
+  font-size: 1.1rem;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.register-form button[type="submit"]:hover {
+  background-color: #6a56a5;
+}
+
+/* Coluna da imagem */
+.register-image {
+  background: url('https://clinicaaprender.pt/wp-content/uploads/2022/07/3-2048x1817-1-1024x909.jpg') center center/cover no-repeat;
+  /* Substitua 'sua-imagem.png' pela sua imagem real */
+}
+
+/* Responsividade */
+@media (max-width: 900px) {
+  .register-container {
+    grid-template-columns: 1fr;
+  }
+
+  .register-image {
+    display: none;
+  }
+
+  .register-form {
+    padding: 2rem;
+  }
+}

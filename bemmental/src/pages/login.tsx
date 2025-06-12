@@ -18,7 +18,7 @@ function Login() {
     try {
       await signInWithEmailAndPassword(auth, usuario, senha);
       console.log("Login realizado com sucesso!");
-      navigate("/marcar-consulta");
+      navigate("/");
     } catch {
       alert("Usuário ou senha inválidos!");
     }
