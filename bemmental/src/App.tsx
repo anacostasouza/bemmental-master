@@ -9,7 +9,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/register" element={<Cadastrar />} />
+        <Route path="/cadastro" element={<Cadastrar />} />
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route

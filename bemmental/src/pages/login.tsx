@@ -1,108 +1,102 @@
 import "../firebase/firebaseConfig";
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { doc, getDoc } from "firebase/firestore";
+import { db } from "../firebase/firebaseConfig";
 import "../styles/login.css";
-import logo from "../assets/logo.png";
 
-function Login() {
-  const [tipoUsuario, setTipoUsuario] = useState("paciente");
-  const [usuario, setUsuario] = useState("");
-  const [senha, setSenha] = useState("");
-  const [isLoginOpen, setIsLoginOpen] = useState(false);
+const Login: React.FC = () => {
+  const [formData, setFormData] = useState({
+    email: "",
+    senha: "",
+  });
+
   const navigate = useNavigate();
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
+
     const auth = getAuth();
+
     try {
-      await signInWithEmailAndPassword(auth, usuario, senha);
-      console.log("Login realizado com sucesso!");
-      navigate("/");
-    } catch {
+      const userCredential = await signInWithEmailAndPassword(
+        auth,
+        formData.email,
+        formData.senha
+      );
+      const user = userCredential.user;
+
+      const userDoc = await getDoc(doc(db, "usuarios", user.uid));
+
+      if (userDoc.exists()) {
+        const dados = userDoc.data();
+
+        if (dados.tipoUsuario === "Psicologo") {
+          navigate("/"); 
+        } else {
+          navigate("/");
+        }
+      } else {
+        alert("Perfil de usuário não encontrado.");
+      }
+    } catch (error) {
       alert("Usuário ou senha inválidos!");
     }
   };
 
-  const irParaCadastro = () => {
-    navigate(
-      tipoUsuario === "paciente"
-        ? "/cadastro-paciente"
-        : "/cadastro-psicologo"
-    );
-  };
-
-  const handleBoxClick = () => {
-    if (!isLoginOpen) setIsLoginOpen(true);
-  };
-
   return (
     <div className="login-container">
-      <header className="header-logo">
-        <img src={logo} alt="Logo Bem Mental" className="logo" />
-      </header>
-
-      <div
-        className={`login-box ${isLoginOpen ? "open" : ""}`}
-        onClick={handleBoxClick}
-      >
-        {!isLoginOpen ? (
-          <span style={{ fontWeight: "bold" }}>Entrar</span>
-          
-        ) : (
-          <div className="login-form">
-            <h2>Conecte-se</h2>
-
-            <div className="radio-group">
-              <label>
-                <input
-                  type="radio"
-                  value="paciente"
-                  checked={tipoUsuario === "paciente"}
-                  onChange={() => setTipoUsuario("paciente")}
-                />
-                Paciente
-              </label>
-              <label>
-                <input
-                  type="radio"
-                  value="psicologo"
-                  checked={tipoUsuario === "psicologo"}
-                  onChange={() => setTipoUsuario("psicologo")}
-                />
-                Psicólogo
-              </label>
+        <div className="login-form">
+          <form onSubmit={handleLogin} className="form">
+            <div className="titulo">
+              <h1>Login de Usuário</h1>
+              <p>
+                Não tem conta?
+                  <Link to={'/cadastro'} className="cadastro">
+                    <p>Cadastrar</p>
+                  </Link>
+              </p>
             </div>
-
-            <form onSubmit={handleLogin} className="form">
+            <div className="form-group">
+              <label htmlFor="email">E-mail*</label>
               <input
-                type="text"
-                placeholder={tipoUsuario === "paciente" ? "E-mail" : "CRP"}
-                value={usuario}
-                onChange={(e) => setUsuario(e.target.value)}
+                type="email"
+                id="email"
+                name="email"
+                placeholder="E-mail"
+                value={formData.email}
+                onChange={handleChange}
                 required
               />
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="senha">Senha*</label>
               <input
                 type="password"
+                id="senha"
+                name="senha"
                 placeholder="Senha"
-                value={senha}
-                onChange={(e) => setSenha(e.target.value)}
+                value={formData.senha}
+                onChange={handleChange}
                 required
               />
-              <button type="submit">Entrar</button>
-            </form>
-
-            <div className="cadastro-link">
-              <button onClick={irParaCadastro}>
-                Cadastrar
-              </button>
             </div>
-          </div>
-        )}
-      </div>
+
+            <button type="submit">Entrar</button>
+          </form>
+        </div>
+      <div className="register-image" />
     </div>
   );
-}
+};
 
 export default Login;
-

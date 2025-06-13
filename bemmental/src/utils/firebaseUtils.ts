@@ -1,5 +1,6 @@
 import { getFirestore, doc, setDoc } from "firebase/firestore";
 import type { Usuario } from "../types/Usuarios"; 
+
 const db = getFirestore();
 
 export const createUserProfile = async (usuario: Usuario) => {

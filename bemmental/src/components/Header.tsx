@@ -27,10 +27,10 @@ const Header = () => {
       <div className="button-group">
         {!user ? (
           <>
-            <Link to={"/Login"}>
+            <Link to={"/login"}>
               <button className="btn btn-login">Entrar</button>
             </Link>
-            <Link to={"/Register"}>
+            <Link to={"/cadastro"}>
               <button className="btn btn-register">Registrar</button>
             </Link>
           </>

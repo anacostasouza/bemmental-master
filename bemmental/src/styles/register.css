@@ -1,14 +1,34 @@
-/* Container geral com duas colunas: formulário + imagem */
 .register-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
   min-height: 100vh;
-  background: #e6d7ff; /* roxo claro */
-  font-family: 'Montserrat', sans-serif;
+  background: #e6d7ff; 
+  font-family: 'Quicksand', sans-serif;
   color: #333;
 }
 
-/* Coluna do formulário */
+.titulo {
+  margin-bottom: 4rem;
+  color: #333333;
+}
+
+.titulo h1 {
+  font-weight: 700;
+  font-size: 42px;
+}
+
+.titulo p {
+  font-weight: 400;
+  font-size: 20px;
+  display: table-row;
+  row-gap: 5px;
+}
+
+.entrar {
+  color: #a66ed1;
+  margin-left: 5px;
+}
+
 .register-form {
   padding: 3rem 4rem;
   display: flex;
@@ -17,25 +37,26 @@
   gap: 1rem;
 }
 
-/* Título */
-.register-form h1 {
-  font-weight: 700;
-  font-size: 2rem;
-  margin-bottom: 2rem;
-  color: #4b2995;
+.cadastro-campo p {
+  font-weight: 500; 
 }
 
-/* Campos de nome lado a lado */
 .name-fields {
   display: flex;
   gap: 1rem;
+
 }
 
-.name-fields input {
+.name-fields input  {
   flex: 1;
+  min-width: 350px;
 }
 
-/* Inputs e select com borda suave e arredondada */
+.email input, .senha input, .tipo-usuario select, .genero select, .data-nascimento input  {
+  flex: 1;
+  min-width: 716px;
+}
+
 .register-form input,
 .register-form select {
   padding: 0.85rem 1rem;
@@ -43,7 +64,7 @@
   border-radius: 12px;
   background-color: #f8f2ff;
   font-size: 1rem;
-  color: #4b2995;
+  color: #333333;
   outline-offset: 2px;
   outline-color: transparent;
   transition: border-color 0.3s ease, background-color 0.3s ease;
@@ -55,12 +76,11 @@
 
 .register-form input:focus,
 .register-form select:focus {
-  border-color: #4b2995;
+  border-color: #9880cc;
   background-color: #fff;
-  outline-color: #4b2995;
+  outline-color: #a08acf;
 }
 
-/* Mensagem de erro */
 .error-message {
   color: #c0392b;
   font-size: 0.9rem;
@@ -69,12 +89,12 @@
   font-weight: 600;
 }
 
-/* Botão de registrar */
 .register-form button[type="submit"] {
+  min-width: 716px;
   margin-top: 1.6rem;
   padding: 1rem;
   border-radius: 12px;
-  background-color: #4b2995;
+  background-color: #AB9AB9;
   color: white;
   font-weight: 700;
   font-size: 1.1rem;
@@ -84,16 +104,13 @@
 }
 
 .register-form button[type="submit"]:hover {
-  background-color: #6a56a5;
+  background-color: #574466;
 }
 
-/* Coluna da imagem */
 .register-image {
-  background: url('https://clinicaaprender.pt/wp-content/uploads/2022/07/3-2048x1817-1-1024x909.jpg') center center/cover no-repeat;
-  /* Substitua 'sua-imagem.png' pela sua imagem real */
+  background: url('../assets/register.png') center center/cover no-repeat;
 }
 
-/* Responsividade */
 @media (max-width: 900px) {
   .register-container {
     grid-template-columns: 1fr;

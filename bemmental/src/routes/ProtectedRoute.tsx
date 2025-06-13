@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Navigate } from "react-router-dom";
 import { onAuthStateChanged } from "firebase/auth";
-import { ref, child, get } from "firebase/database";
-import { auth, database } from "../firebase/firebaseConfig";
+import { getDoc, doc } from "firebase/firestore";
+import { auth, db } from "../firebase/firebaseConfig";
 
 interface ProtectedRouteProps {
   children: React.ReactNode;
@@ -16,8 +16,10 @@ const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ children }) => {
     const unsubscribe = onAuthStateChanged(auth, async (user) => {
       if (user) {
         try {
-          const snapshot = await get(child(ref(database), `users/${user.uid}`));
-          if (snapshot.exists()) {
+          const docRef = doc(db, "usuarios", user.uid);
+          const docSnap = await getDoc(docRef);
+
+          if (docSnap.exists()) {
             setAutenticado(true);
           } else {
             setAutenticado(false);
