@@ -1,0 +1,187 @@
+.agenda-container {
+  min-height: 100vh;
+  background: #f3e8ff;
+  font-family: 'Quicksand', sans-serif;
+  color: #333;
+  padding: 3rem 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.agenda-container h1 {
+  font-weight: 700;
+  font-size: 42px;
+  color: #333333;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.psicologo-info {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #574466;
+  margin-bottom: 2.5rem;
+  text-align: center;
+}
+
+.agenda-form {
+  width: 100%;
+  max-width: 700px;
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+  justify-content: center;
+  flex-wrap: wrap; 
+}
+
+.agenda-form .form-group {
+  flex: 1;
+  min-width: 280px; 
+  display: flex;
+  flex-direction: column;
+}
+
+.agenda-form label {
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  color: #574466;
+}
+
+.agenda-form select {
+  padding: 0.85rem 1rem;
+  border: 1.5px solid #cbbfff;
+  border-radius: 12px;
+  background-color: #f8f2ff;
+  font-size: 1rem;
+  color: #333333;
+  outline-offset: 2px;
+  outline-color: transparent;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+  width: 100%;
+}
+
+.agenda-form select:focus {
+  border-color: #9880cc;
+  background-color: #fff;
+  outline-color: #a08acf;
+}
+
+hr {
+  width: 80%;
+  max-width: 900px;
+  border: none;
+  border-top: 1px solid #cbbfff;
+  margin: 3rem 0;
+}
+
+.consultas-lista,
+.minha-disponibilidade {
+  width: 100%;
+  max-width: 900px;
+  padding: 0 1rem;
+}
+
+.consultas-lista h2,
+.minha-disponibilidade h2 {
+  font-weight: 600;
+  font-size: 1.8rem;
+  color: #574466;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.consultas-lista ul,
+.minha-disponibilidade ul {
+  list-style: none;
+  padding: 0;
+  display: grid; 
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.consulta-card {
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.consulta-card h3 {
+  color: #574466;
+  font-size: 1.3rem;
+  margin-bottom: 0.75rem;
+}
+
+.consulta-card p {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 0.25rem;
+  text-align: left;
+}
+
+.btn-consulta-action {
+  margin-top: 1rem;
+  padding: 0.75rem 1.2rem;
+  border-radius: 8px; 
+  background-color: #AB9AB9;
+  color: white;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  align-self: flex-start;
+}
+
+.btn-consulta-action:hover {
+  background-color: #574466;
+}
+
+.minha-disponibilidade ul li {
+  background-color: #f8f2ff;
+  border: 1px solid #cbbfff;
+  border-radius: 8px;
+  padding: 1rem 1.2rem;
+  font-size: 1rem;
+  color: #574466;
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .agenda-container {
+    padding: 2rem;
+  }
+
+  .agenda-container h1 {
+    font-size: 36px;
+  }
+
+  .agenda-form {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .agenda-form .form-group {
+    min-width: unset;
+  }
+
+  .consultas-lista ul,
+  .minha-disponibilidade ul {
+    grid-template-columns: 1fr;
+    padding: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .agenda-container {
+    padding: 1.5rem;
+  }
+
+  .agenda-container h1 {
+    font-size: 30px;
+  }
+}

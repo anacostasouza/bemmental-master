@@ -109,7 +109,7 @@
   background: url('../assets/register.png') center center/cover no-repeat;
 }
 
-/* Responsivo */
+
 @media (max-width: 900px) {
   .login-container {
     grid-template-columns: 1fr;

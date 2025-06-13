@@ -11,7 +11,7 @@ const Cadastrar: React.FC = () => {
     nome: "",
     sobrenome: "",
     tipoUsuario: "",
-    cro: "",
+    crp: "",
     email: "",
     senha: "",
     genero: "",
@@ -81,7 +81,7 @@ const Cadastrar: React.FC = () => {
           sobrenome: formData.sobrenome,
           tipoUsuario: "Psicologo" as const,
           isPsicologo: true,
-          cro: formData.cro,
+          crp: formData.crp,
           genero: formData.genero,
           dataNascimento: formData.dataNascimento,
         };
@@ -93,7 +93,6 @@ const Cadastrar: React.FC = () => {
           sobrenome: formData.sobrenome,
           tipoUsuario: "Paciente" as const,
           isPsicologo: false,
-          cro: null,
           genero: formData.genero,
           dataNascimento: formData.dataNascimento,
         };
@@ -107,7 +106,7 @@ const Cadastrar: React.FC = () => {
         nome: "",
         sobrenome: "",
         tipoUsuario: "",
-        cro: "",
+        crp: "",
         email: "",
         senha: "",
         genero: "",
@@ -201,10 +200,11 @@ const Cadastrar: React.FC = () => {
 
             {formData.tipoUsuario === "Psicologo" && (
               <input
+                id="crp"
                 type="text"
-                name="cro"
-                placeholder="CRO"
-                value={formData.cro}
+                name="crp"
+                placeholder="CRP"
+                value={formData.crp}
                 onChange={handleChange}
                 required
               />

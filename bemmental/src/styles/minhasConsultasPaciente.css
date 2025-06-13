@@ -1,0 +1,176 @@
+.minhas-consultas-container {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 25px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: 'Arial', sans-serif;
+    color: #333;
+}
+
+.minhas-consultas-container h1 {
+    text-align: center;
+    color: #4CAF50; 
+    margin-bottom: 20px;
+    font-size: 2.2em;
+    font-weight: 600;
+}
+
+.minhas-consultas-container .paciente-info {
+    text-align: center;
+    font-size: 1.1em;
+    color: #555;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.minhas-consultas-container hr {
+    border: none;
+    border-top: 1px solid #eee;
+    margin: 30px 0;
+}
+
+.consultas-lista h2 {
+    font-size: 1.8em;
+    color: #333;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #4CAF50;
+    padding-bottom: 10px;
+}
+
+.consultas-lista ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.consulta-card {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.consulta-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.consulta-card h3 {
+    color: #4CAF50;
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 1.5em;
+}
+
+.consulta-card p {
+    margin-bottom: 8px;
+    line-height: 1.5;
+}
+
+.consulta-card strong {
+    color: #555;
+}
+
+.consulta-actions {
+    margin-top: 15px;
+    display: flex;
+    gap: 10px; 
+    flex-wrap: wrap;
+}
+
+.btn-remarcar-consulta,
+.btn-cancelar-consulta,
+.btn-consulta-action {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    font-weight: bold;
+    transition: background-color 0.2s ease;
+}
+
+.btn-remarcar-consulta {
+    background-color: #ff9800;
+    color: white;
+}
+
+.btn-remarcar-consulta:hover {
+    background-color: #e68900;
+}
+
+.btn-cancelar-consulta {
+    background-color: #f44336; 
+    color: white;
+}
+
+.btn-cancelar-consulta:hover {
+    background-color: #d32f2f;
+}
+
+.btn-consulta-action {
+    background-color: #2196F3; 
+    color: white;
+}
+
+.btn-consulta-action:hover {
+    background-color: #1976D2;
+}
+
+.consulta-card.historico-card {
+    opacity: 0.7; 
+    background-color: #ececec;
+}
+
+.error-message {
+    color: #d32f2f;
+    background-color: #ffebee;
+    border: 1px solid #d32f2f;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.success-message {
+    color: #388e3c;
+    background-color: #e8f5e9;
+    border: 1px solid #388e3c;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+
+@media (max-width: 768px) {
+    .minhas-consultas-container {
+        margin: 10px;
+        padding: 15px;
+    }
+
+    .minhas-consultas-container h1 {
+        font-size: 1.8em;
+    }
+
+    .consultas-lista h2 {
+        font-size: 1.5em;
+    }
+
+    .consulta-actions {
+        flex-direction: column; 
+        gap: 8px;
+    }
+
+    .btn-remarcar-consulta,
+    .btn-cancelar-consulta,
+    .btn-consulta-action {
+        width: 100%; 
+    }
+}

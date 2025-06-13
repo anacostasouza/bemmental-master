@@ -1,68 +1,160 @@
+/* src/styles/Header.css */
+
 .header {
-  width: 100%;
-  height: 80px;
-  padding: 16px 32px;
-  background-color: #f3e8ff; /* light purple */
-  border-bottom: 1px solid #d6c2e8;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  box-sizing: border-box;
+    width: 100%;
+    height: 80px;
+    padding: 16px 32px;
+    background-color: #f3e8ff;
+    border-bottom: 1px solid #d6c2e8;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    /* Remover position: relative; se não for estritamente necessário para outros elementos dentro.
+       Se for necessário, ok, mas o center-button será flex agora. */
+    /* position: relative; */ /* Remova ou mantenha dependendo de outros usos */
+}
+
+/* Ajuste para o center-button */
+.center-button {
+    /* Remova as propriedades de posicionamento absoluto */
+    /* position: absolute; */
+    /* left: 50%; */
+    /* transform: translateX(-50%); */
+
+    /* Use flexbox para alinhar os botões centralmente */
+    display: flex;
+    gap: 16px; /* Espaçamento entre os botões */
+    flex-grow: 1; /* Permite que ele ocupe o espaço disponível */
+    justify-content: center; /* Centraliza os itens dentro dele */
+    align-items: center;
+}
+
+.center-button button {
+    background: none;
+    border: none;
+    padding: 0;
+    box-shadow: none;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 500;
+    font-family: 'Quicksand', sans-serif;
+    color: rgb(79, 134, 140);
+    /* Adicione um padding aqui se quiser que os botões tenham uma área de clique maior */
+    padding: 8px 12px;
+    border-radius: 6px;
+    transition: background-color 0.2s ease;
 }
 
 .logo-container {
-  display: flex;
-  align-items: center;
-  gap: 12px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
 }
 
 .logo {
-  width: 184px;
-  height: 58px;
+    width: 184px;
+    height: 58px;
 }
 
 .logo-text {
-  font-size: 24px;
-  font-weight: 600;
-  color: #4a4848;
+    font-size: 24px;
+    font-weight: 600;
+    color: #4a4848;
 }
 
 .button-group {
-  display: flex;
-  gap: 16px;
+    display: flex;
+    gap: 16px;
 }
 
-.user-name {
-  font-family: 'Quicksand';
-  font-weight: 600;
-  color: #4F868C;
+/* Novo estilo para o nome de usuário clicável */
+.user-info-dropdown {
+    font-family: 'Quicksand';
+    font-weight: 600;
+    color: #4F868C;
+    cursor: pointer; /* Indica que é clicável */
+    padding: 8px 12px; /* Adiciona padding para uma área de clique maior */
+    border-radius: 6px; /* Para um visual de botão sutil ao hover */
+    transition: background-color 0.2s ease;
+    display: flex; /* Para alinhar o texto e o ícone, se houver */
+    align-items: center;
 }
+
+.user-info-dropdown:hover {
+    background-color: rgba(79, 134, 140, 0.1); /* Um leve highlight ao passar o mouse */
+}
+
+/* Se você for usar um ícone (ex: Font Awesome), adicione estilo */
+.user-info-dropdown i {
+    margin-left: 8px; /* Espaço entre o texto e o ícone */
+    font-size: 0.9em;
+}
+
 
 .btn {
-  padding: 8px 16px;
-  border: none;
-  border-radius: 6px;
-  font-size: 14px;
-  font-weight: 500;
-  cursor: pointer;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  transition: background-color 0.2s ease;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.2s ease;
 }
 
 .btn-login {
-  background-color: #ffffff;
-  color: #4a4848;
+    background-color: #ffffff;
+    color: #4a4848;
 }
 
 .btn-login:hover {
-  background-color: #f0f0f0;
+    background-color: #f0f0f0;
 }
 
 .btn-register {
-  background-color: #e2b9ff;
-  color: #4a4848;
+    background-color: #e2b9ff;
+    color: #4a4848;
 }
 
 .btn-register:hover {
-  background-color: #d3a3f5;
+    background-color: #d3a3f5;
+}
+
+/* Media Queries para responsividade, se necessário */
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        height: auto;
+        padding: 10px 15px;
+    }
+
+    .logo-container {
+        margin-bottom: 10px;
+    }
+
+    .center-button {
+        /* Remover o position absoluto em telas pequenas */
+        position: static;
+        transform: none;
+        width: 100%; /* Ocupa a largura total */
+        margin-bottom: 10px;
+        flex-direction: column; /* Botões um abaixo do outro */
+    }
+
+    .center-button button {
+        width: 100%; /* Botões do centro ocupam a largura total */
+        margin: 5px 0; /* Espaço vertical */
+    }
+
+    .button-group {
+        width: 100%;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .btn, .user-info-dropdown {
+        width: 100%;
+        text-align: center;
+    }
 }
